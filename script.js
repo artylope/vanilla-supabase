@@ -1,15 +1,10 @@
 console.log('Hello World!');
 
-import { createClient } from '@supabase/supabase-js';
+const supabaseUrl = 'https://zqasewvztxlptororaie.supabase.co';
+const supabaseKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxYXNld3Z6dHhscHRvcm9yYWllIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU1MjgyNjAsImV4cCI6MjAwMTEwNDI2MH0.JJit0kmCJye8SUIrOZvQ482sgbqNh92uFDaa2gCPPKI';
 
-// Create a single supabase client for interacting with your database
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+const { createClient } = supabase;
+const _supabase = createClient(supabaseUrl, supabaseKey);
 
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-console.log(supabase);
-console.log(`url ${process.env.NEXT_PUBLIC_SUPABASE_URL}`);
-console.log(`key ${process.env.NEXT_PUBLIC_SUPABASE_KEY}`);
-
-//https://stackoverflow.com/questions/68761653/how-to-make-a-env-file-in-vanilla-js-and-hide-tokens-in-them
+console.log('Supabase Instance: ', _supabase);
